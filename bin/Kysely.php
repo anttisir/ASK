@@ -25,7 +25,8 @@ class Kysely {
 		return $this->tulos;	
 	}
 	public function init() {
-		return new PDO('mysql:host='.$this->getInfo()[0].';dbname='.$this->getInfo()[1].'',$this->getInfo()[2],$this->getInfo()[3], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+		$a = $this->getInfo();
+		return new PDO('mysql:host='.$a[0].';dbname='.$a[1].'',$a[2],$a[3], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 	}
 	
 	public function getInfo() {
