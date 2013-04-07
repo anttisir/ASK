@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS `Answer` (
+  `A_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `P_ID` int(11) NOT NULL,
+  `qText` varchar(300) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `amount` int(11) NOT NULL,
+  `orderNo` int(11) NOT NULL,
+  PRIMARY KEY (`A_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `Poll` (
+  `P_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `question` varchar(300) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `creator` int(3) DEFAULT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `endTime` timestamp NULL DEFAULT NULL,
+  `active` binary(1) NOT NULL DEFAULT '0',
+  `target` varchar(20) CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  PRIMARY KEY (`P_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `User` (
+  `U_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `pwd` char(64) NOT NULL,
+  PRIMARY KEY (`U_ID`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+INSERT INTO `User` (`U_ID`, `name`, `pwd`) VALUES
+(1, 'demo', '4011ba02e51104c678c31a76a444485b38f3865e504d89c3a0a80b439bb1a237'); 
