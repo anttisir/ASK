@@ -1,0 +1,5 @@
+default user:
+	username: demo
+	password: demodemo
+	
+edit bin/config.php
